@@ -1,5 +1,5 @@
 # vue-webpack-vueLoader
-搭载了webpack、vue-loader的vue组件开发脚手架
+搭载了webpack、vue-loader的vue组件开发脚手架，详细tutorial链接[here](http://geocld.github.io/2016/03/14/vuejs_webpack/)。
 
 ```
 # install dependencies
