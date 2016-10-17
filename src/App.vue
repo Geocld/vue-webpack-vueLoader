@@ -1,48 +1,67 @@
 <template>
   <div>
-    <div class="condition_box">
-      <condition :filter-text.sync="filterText"></condition>
-    </div>
-    
-    <div class="result_box">
-      <list :items="filteredItems"></list>
-    </div>
+    <img class="logo" src="./assets/logo.png">
+    <p>{{ counter }}</p>
+    <hello></hello>
+    <p>
+      Welcome to your Vue.js app. To get started, take a look at the
+      <a href="https://github.com/vuejs-templates/webpack#folder-structure" target="_blank">README</a>
+      of this template. If you have any issues with the setup, please file an issue at this template's repository.
+    </p>
+    <p>
+      For advanced configurations, checkout the docs for
+      <a href="http://webpack.github.io/" target="_blank">Webpack</a> and
+      <a href="http://vuejs.github.io/vue-loader/" target="_blank">vue-loader</a>.
+    </p>
+    <p>
+      You may also want to checkout
+      <a href="https://github.com/vuejs/vue-router/" target="_blank">vue-router</a> for routing and
+      <a href="https://github.com/vuejs/vuex/" target="_blank">vuex</a> for state management.
+    </p>
   </div>
 </template>
 
 <script>
-import condition from './components/condition.vue'
-import list from './components/list.vue'
+import Hello from './components/Hello'
 
 export default {
-  el: 'body',
   data () {
     return {
-      filterText: '',
-      items: ['Jack Yang', 'Angel', 'New York']
+      counter: 0
     }
   },
   components: {
-    condition,
-    list
+    Hello
   },
-  computed: {
-    filteredItems: function() {
-      return this.$data.items.filter(function(item) {
-        return item.indexOf(this.$data.filterText) != -1;
-      }.bind(this));
-    }
+  ready () {
+    setInterval(() => {
+      this.counter = this.counter + 1
+    }, 1000)
   }
 }
 </script>
 
-<style scoped>
-* {
-  margin: 0; 
-  padding: 0;
-  box-sizing: border-box;
+<style>
+html {
+  height: 100%;
 }
-.box {
-  padding: 10px;
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+#app {
+  margin-top: -100px;
+  max-width: 600px;
+  font-family: Helvetica, sans-serif;
+  text-align: center;
+}
+
+.logo {
+  width: 100px;
+  height: 100px
 }
 </style>
